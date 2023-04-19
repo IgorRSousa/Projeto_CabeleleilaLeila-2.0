@@ -1,0 +1,13 @@
+body{
+    background-color: #EFC4FB;
+}
+nav{
+    background-color: #B05FC7;
+}
+.corpo{
+    background-color: #FFF;
+    min-height: 680px;
+    margin-bottom: 5px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
