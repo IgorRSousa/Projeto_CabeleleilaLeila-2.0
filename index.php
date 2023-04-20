@@ -44,9 +44,15 @@
                         case '' :
                             require __DIR__ . '/views/home.php';
                             break;
+                        case '/index.php' :
+                            require __DIR__ . '/views/home.php';
+                            break;
 
                         case '/agendar' :
                             require __DIR__ .'/views/agendamento.php';
+                            break;
+                        case '/criarAgendamento':
+                            require __DIR__ .'/views/Controles/criar_agendamento.php';
                             break;
                         
                         default:

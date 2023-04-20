@@ -38,4 +38,5 @@
         // Faça o processamento da resposta da API aqui
         echo '<script>alert("'.$resposta['mensagem'].'")</script>';
     }
+    print "<script>location.href='agendar';</script>";
 ?>
