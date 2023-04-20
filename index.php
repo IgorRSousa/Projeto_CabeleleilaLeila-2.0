@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="<?php echo (in_array($_SERVER['REQUEST_URI'], ["/", "", "/index.php"])) ? "nav-link active" : "nav-link"; ?>" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="agendar">Agendar Serviço</a>
+                    <a class="<?php echo ($_SERVER['REQUEST_URI'] == "/agendar") ? "nav-link active" : "nav-link"; ?>" href="agendar">Agendar Serviço</a>
                     </li>
                 </ul>
                 
