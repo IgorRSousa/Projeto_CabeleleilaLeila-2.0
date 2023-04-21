@@ -17,7 +17,12 @@ class Agendar extends BaseController{
         $usuario->data = $request->input('data');
         $usuario->hora = $request->input('hora');
         $usuario->servico = $request->input('servico');
-        $usuario->observacao = $request->input('observacao');
+        if($request->input('observacao') == ''){
+            $obs = "Nenhuma observação registrada.";
+        }else{
+            $obs = $request->input('observacao');
+        }
+        $usuario->observacao = $obs;
 
         // Salvar o objeto no banco de dados
         $usuario->save();

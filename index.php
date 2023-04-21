@@ -25,6 +25,9 @@
                     <li class="nav-item">
                     <a class="<?php echo ($_SERVER['REQUEST_URI'] == "/agendar") ? "nav-link active" : "nav-link"; ?>" href="agendar">Agendar Serviço</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="<?php echo ($_SERVER['REQUEST_URI'] == "/listarAgenda") ? "nav-link active" : "nav-link"; ?>" href="listarAgenda">Lista de Agedamentos</a>
+                    </li>
                 </ul>
                 
                 <button class="btn btn-danger" type="submit">Sair</button>
@@ -53,6 +56,10 @@
                             break;
                         case '/criarAgendamento':
                             require __DIR__ .'/views/Controles/criar_agendamento.php';
+                            break;
+
+                        case '/listarAgenda':
+                            require __DIR__ .'/views/listarAgenda.php';
                             break;
                         
                         default:
