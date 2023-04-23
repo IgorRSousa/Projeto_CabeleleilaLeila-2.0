@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             <?php
-                $url = 'http://localhost:8000/listarAgenda';
+                $url = 'http://localhost:8000/listarAgendamentos';
                 $dado = file_get_contents($url); // executa link da api e recebe a resposta
                 $jsonDados = json_decode($dado);
 
@@ -28,7 +28,10 @@
                     print '<td>'.date("H:i", strtotime($dado->hora)).'</th>';
                     print '<td>'.$dado->servico.'</th>';
                     print '<td>'.$dado->observacao.'</th>';
-                    print '<td><button class="btn btn-warning" onclick=\'location.href="/views/Controles/encaminhar_id.php?id='.$dado->id.'"\'>Editar</button></th>';
+                    print '<td>
+                            <button class="btn btn-warning" onclick=\'location.href="/views/Controles/encaminhar_id.php?id='.$dado->id.'"\'>Editar</button>
+                            <button class="btn btn-danger" onclick=\'if(confirm("Tem certeza que deseja Excluir o Agendamento ?")){location.href="/views/Controles/delete_agendamento.php?id='.$dado->id.'"}else{false}\'>Excluir</button>
+                          </th>';
                     print '</tr>';
                 }
             ?>

@@ -64,7 +64,13 @@ class AgendamentosController extends Controller{
                 'erro' => 'Registro não encontrado'
             ], 404);
         }
-        
+    }
+    
+    public function deletar($id){
+
+        $usuario = Agendamentos::find($id);
+        $usuario->delete();
+        return response()->json(['mensagem' => 'Agendamento deletado com sucesso'], 201);
     }
 } 
 ?>

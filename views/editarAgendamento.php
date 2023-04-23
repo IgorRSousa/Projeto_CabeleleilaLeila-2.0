@@ -1,5 +1,5 @@
 <?php
-    $url = 'http://localhost:8000/consultar/'.$_POST["id"].'';
+    $url = 'http://localhost:8000/consultarAgendamento/'.$_POST["id"].'';
     $dado = file_get_contents($url); // executa link da api e recebe a resposta
     $jsonDados = json_decode($dado);
 ?>

@@ -14,7 +14,7 @@
     );
 
     $curl = curl_init();
-    $url = "http://localhost:8000/agendar";
+    $url = "http://localhost:8000/criarAgendamento";
 
     // Configurar as opções da requisição
     curl_setopt($curl, CURLOPT_URL, $url);

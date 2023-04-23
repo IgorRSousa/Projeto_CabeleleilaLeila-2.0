@@ -14,7 +14,7 @@
     );
 
     $curl = curl_init();
-    $url = "http://localhost:8000/alterar/".$_POST["id"];
+    $url = "http://localhost:8000/alterarAgendamento/".$_POST["id"];
 
     // Configurar as opções da requisição
     /*CURLOPT_URL: define a URL da requisição que será enviada.
