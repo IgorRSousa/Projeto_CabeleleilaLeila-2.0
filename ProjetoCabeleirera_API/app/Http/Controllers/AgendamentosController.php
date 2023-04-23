@@ -8,26 +8,30 @@ use App\Models\Agendamentos;
 class AgendamentosController extends Controller{
 
     public function agendar(Request $request){
-        // Validação dos dados recebidos do front-end
+
+        $usuario = Agendamentos::where('data', $request->input('data'))->where('hora', $request->input('hora'))->first();
         
-        // Criar uma nova instância do modelo e definir os atributos com os dados recebidos
-        $usuario = new Agendamentos;
-        $usuario->nome = $request->input('nome');
-        $usuario->data = $request->input('data');
-        $usuario->hora = $request->input('hora');
-        $usuario->servico = $request->input('servico');
-        if($request->input('observacao') == ''){
-            $obs = "Nenhuma observação registrada.";
+        if($usuario){
+            return response()->json(['mensagem' => 'Ja exixte agendamento salvo nessa data e hora !'], 201);
         }else{
-            $obs = $request->input('observacao');
+            $usuario = new Agendamentos;
+            $usuario->nome = $request->input('nome');
+            $usuario->data = $request->input('data');
+            $usuario->hora = $request->input('hora');
+            $usuario->servico = $request->input('servico');
+            
+            if($request->input('observacao') == ''){
+                $obs = "Nenhuma observação registrada.";
+            }else{
+                $obs = $request->input('observacao');
+            }
+            $usuario->observacao = $obs;
+
+            $usuario->save();
+
+            return response()->json(['mensagem' => 'Agendamento salvo com sucesso !'], 201);
         }
-        $usuario->observacao = $obs;
-
-        // Salvar o objeto no banco de dados
-        $usuario->save();
-
-        // Retornar a resposta adequada para o front-end
-        return response()->json(['mensagem' => 'Agendamento salvo com sucesso'], 201);
+        
     }
 
     public function listarAgenda(){
