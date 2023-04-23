@@ -54,12 +54,19 @@
                         case '/agendar' :
                             require __DIR__ .'/views/agendamento.php';
                             break;
-                        case '/criarAgendamento':
+                        case '/salvarAgendamento':
                             require __DIR__ .'/views/Controles/criar_agendamento.php';
                             break;
 
                         case '/listarAgenda':
                             require __DIR__ .'/views/listarAgenda.php';
+                            break;
+                        
+                        case '/editarAgenda':
+                            require __DIR__ .'/views/editarAgendamento.php';
+                            break;
+                        case '/salvarAlteracaoAgendamento':
+                            require __DIR__ .'/views/Controles/alterar_agendamento.php';
                             break;
                         
                         default:

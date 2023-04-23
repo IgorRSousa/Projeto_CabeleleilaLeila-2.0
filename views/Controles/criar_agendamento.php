@@ -30,12 +30,9 @@
 
     $resposta = json_decode($resultado, true);
 
-    // Lide com erros de requisição aqui, se necessário
     if ($resposta === false) {
-        // Houve um erro na decodificação do JSON
         echo '<script>alert("Erro ao decodificar a resposta da API")</script>';
     } else {
-        // Faça o processamento da resposta da API aqui
         echo '<script>alert("'.$resposta['mensagem'].'")</script>';
     }
     print "<script>location.href='agendar';</script>";
